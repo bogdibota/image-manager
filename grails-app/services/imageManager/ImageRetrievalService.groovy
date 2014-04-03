@@ -12,7 +12,6 @@ import static java.awt.RenderingHints.VALUE_INTERPOLATION_BICUBIC
 
 class ImageRetrievalService {
 
-    static String tmpPath = "web-app/image/image-manager-tmp/"
     static transactional = false
 
     public String getFullSizeImagePath(Image image) {
@@ -84,12 +83,14 @@ class ImageRetrievalService {
     private static File findOrCreateScaledImage(Image image, int width, int height, Color backgroundColor = new Color(255, 255, 255, 0)) {
         String fileName = getAssociatedTemporaryFileName(image, width, height)
 
-        File tmpFile = new File(tmpPath + fileName)
+        File tmpFile = new File(ImageManagerPluginConstants.TEMPORARY_FILES_LOCATION + fileName)
 
         if (!tmpFile.exists()) {
             def size = calculateNewSize(image.imageWidth, image.imageHeight, width, height)
             BufferedImage originalImage = ImageManipulationUtils.bytesToBufferedImage(image.imageData.data)
             BufferedImage newImage = resize(originalImage, [width: width, height: height], size, backgroundColor)
+            if(!tmpFile.getParentFile().exists())
+                tmpFile.getParentFile().mkdirs()
             ImageIO.write(newImage, image.getExt(), tmpFile)
         }
 
