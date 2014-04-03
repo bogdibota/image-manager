@@ -1,13 +1,9 @@
 package imageManager
 
+import imageManager.utils.ImageFilesManagementUtils
 import imageManager.validation.ImageTypeValidator
 
-import javax.persistence.Transient
-
 class Image {
-
-    @Transient
-    def imageFilesManagementService
 
     String imageType
     LargeData imageData
@@ -16,7 +12,7 @@ class Image {
     int imageHeight
 
     def beforeDelete() {
-        imageFilesManagementService.deleteTemporaryFiles(id)
+        ImageFilesManagementUtils.deleteTemporaryFiles(id)
     }
 
     public String getExt() {

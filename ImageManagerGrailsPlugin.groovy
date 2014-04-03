@@ -1,6 +1,8 @@
+import imageManager.utils.ImageFilesManagementUtils
+
 class ImageManagerGrailsPlugin {
     // the plugin version
-    def version = "0.3.3"
+    def version = "1.0"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.2 > *"
     // resources that are excluded from plugin packaging
@@ -11,7 +13,7 @@ class ImageManagerGrailsPlugin {
     // TODO Fill in these fields
     def title = "Image Manager" // Headline display name of the plugin
     def author = "Bogdan Bota"
-    def authorEmail = "bogdibota@gmail.com"
+    def authorEmail = "bogdibota@yahoo.com"
     def description = '''\
 A simple, yet effective, plugin for managing and using images in DB
 '''
@@ -64,6 +66,6 @@ A simple, yet effective, plugin for managing and using images in DB
     }
 
     def onShutdown = { event ->
-        // TODO Implement code that is executed when the application shuts down (optional)
+        ImageFilesManagementUtils.deleteAllTemporaryFiles()
     }
 }

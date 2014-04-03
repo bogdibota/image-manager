@@ -1,25 +1,28 @@
-package imageManager
+package imageManager.utils
 
-class ImageFilesManagementService {
+import imageManager.ImageManagerPluginConstants
 
-    static transactional = false
+/**
+ * Created by Bogdan Bota on 03/04/14.
+ */
+class ImageFilesManagementUtils {
 
-    def deleteTemporaryFiles(Long imageId) {
+    static void deleteTemporaryFiles(Long imageId) {
         File tmpDir = new File(ImageManagerPluginConstants.TEMPORARY_FILES_LOCATION)
         if (tmpDir.exists()) {
             tmpDir.listFiles(new FilenameFilter() {
                 @Override
                 boolean accept(File dir, String name) {
-                    name.startsWith(imageId.toString()+"_")
+                    name.startsWith(imageId.toString() + "_")
                 }
-            }).each {it.delete()}
+            }).each { it.delete() }
         }
     }
 
-    def deleteAllTemporaryFiles() {
+    static void deleteAllTemporaryFiles() {
         File tmpDir = new File(ImageManagerPluginConstants.TEMPORARY_FILES_LOCATION)
         if (tmpDir.exists()) {
-            tmpDir.listFiles().each {it.delete()}
+            tmpDir.listFiles().each { it.delete() }
         }
     }
 }

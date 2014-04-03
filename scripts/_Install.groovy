@@ -1,4 +1,4 @@
-import imageManager.ImageRetrievalService
+import imageManager.ImageManagerPluginConstants
 
 //
 // This script is executed by Grails after plugin was installed to project.
@@ -12,4 +12,4 @@ import imageManager.ImageRetrievalService
 //
 
 //create the tmp folder
-ant.mkdir(dir: "${basedir}/${ImageRetrievalService.tmpPath}")
+ant.mkdir(dir: "${basedir}/${ImageManagerPluginConstants.TEMPORARY_FILES_LOCATION}")
