@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage
 
 class ImageCreationService {
 
-    public Image createImage(BufferedImage bufferedImage, String imageExtension) {
+    static transactional = false
+
+    Image createImage(BufferedImage bufferedImage, String imageExtension) {
         ImageTypeValidator.validateExtension(imageExtension)
         def data = ImageManipulationUtils.bufferedImageToBytes(bufferedImage, imageExtension)
         new Image(imageData: new LargeData(data: data),
@@ -18,7 +20,7 @@ class ImageCreationService {
                 imageHeight: bufferedImage.height)
     }
 
-    public Image createImage(byte[] data, String imageFormat) {
+    Image createImage(byte[] data, String imageFormat) {
         ImageTypeValidator.validateFormat(imageFormat)
         def img = ImageManipulationUtils.bytesToBufferedImage(data)
         new Image(imageData: new LargeData(data: data),
@@ -27,9 +29,10 @@ class ImageCreationService {
                 imageHeight: img.height)
     }
 
-    public Image createImage(CommonsMultipartFile file) {
-        if(!file || file.isEmpty())
+    Image createImage(CommonsMultipartFile file) {
+        if (!file || file.isEmpty()) {
             throw new ImageCreationException("Invalid file: $file")
+        }
         createImage(file.bytes, file.contentType)
     }
 }
