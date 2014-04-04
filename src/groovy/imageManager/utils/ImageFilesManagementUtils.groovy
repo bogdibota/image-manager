@@ -3,7 +3,7 @@ package imageManager.utils
 import imageManager.ImageManagerPluginConstants
 
 /**
- * Created by Bogdan Bota on 03/04/14.
+ * @author Bogdan Bota
  */
 class ImageFilesManagementUtils {
 
@@ -11,7 +11,6 @@ class ImageFilesManagementUtils {
         File tmpDir = new File(ImageManagerPluginConstants.TEMPORARY_FILES_LOCATION)
         if (tmpDir.exists()) {
             tmpDir.listFiles(new FilenameFilter() {
-                @Override
                 boolean accept(File dir, String name) {
                     name.startsWith(imageId.toString() + "_")
                 }

@@ -1,14 +1,10 @@
 package imageManager.exceptions
 
 /**
- * Created with IntelliJ IDEA.
- * User: Bogdan Bota
- * Date: 09/03/14
- * Time: 14:16
- * To change this template use File | Settings | File Templates.
+ * @author Bogdan Bota
  */
-class ImageTypeValidationException extends Exception{
-    public ImageTypeValidationException(String message) {
+class ImageTypeValidationException extends Exception {
+    ImageTypeValidationException(String message) {
         super(message)
     }
 }

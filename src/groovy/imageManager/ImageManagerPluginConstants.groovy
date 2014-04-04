@@ -1,7 +1,7 @@
 package imageManager
 
 /**
- * Created by Bogdan Bota on 03/04/14.
+ * @author Bogdan Bota
  */
 class ImageManagerPluginConstants {
 

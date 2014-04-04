@@ -15,7 +15,7 @@ class Image {
         ImageFilesManagementUtils.deleteTemporaryFiles(id)
     }
 
-    public String getExt() {
+    String getExt() {
         return imageType.split("/")[1]
     }
 
