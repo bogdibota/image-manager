@@ -1,6 +1,6 @@
-package imageManager.validation
+package com.dvk.imageManager.validation
 
-import imageManager.exceptions.ImageTypeValidationException
+import com.dvk.imageManager.exceptions.ImageTypeValidationException
 
 /**
  * @author Bogdan Bota

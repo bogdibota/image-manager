@@ -1,4 +1,4 @@
-package imageManager.utils
+package com.dvk.imageManager.utils
 
 import javax.imageio.ImageIO
 import java.awt.image.BufferedImage

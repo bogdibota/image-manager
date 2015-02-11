@@ -1,15 +1,14 @@
-package imageManager
+package com.dvk.imageManager
 
-import imageManager.exceptions.ImageRenderingException
-import imageManager.utils.ImageManipulationUtils
+import com.dvk.imageManager.Image
+import com.dvk.imageManager.exceptions.ImageRenderingException
+import com.dvk.imageManager.utils.ImageManipulationUtils
 
-import java.awt.Color
+import java.awt.*
 import java.awt.image.BufferedImage
 
 class ImageRenderingController {
     def imageRetrievalService
-
-    def index() { }
 
     def renderImage(Long imageId, Integer width, Integer height, String backgroundColor, Float scale) {
         Image image = Image.get(imageId)

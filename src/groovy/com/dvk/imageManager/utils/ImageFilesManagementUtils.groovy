@@ -1,6 +1,6 @@
-package imageManager.utils
+package com.dvk.imageManager.utils
 
-import imageManager.ImageManagerPluginConstants
+import com.dvk.imageManager.ImageManagerPluginConstants
 
 /**
  * @author Bogdan Bota

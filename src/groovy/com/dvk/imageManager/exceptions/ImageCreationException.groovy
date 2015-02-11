@@ -1,4 +1,4 @@
-package imageManager.exceptions
+package com.dvk.imageManager.exceptions
 
 /**
  * @author Bogdan Bota

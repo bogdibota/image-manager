@@ -1,8 +1,8 @@
-package imageManager
+package com.dvk.imageManager
 
-import imageManager.exceptions.ImageCreationException
-import imageManager.utils.ImageManipulationUtils
-import imageManager.validation.ImageTypeValidator
+import com.dvk.imageManager.exceptions.ImageCreationException
+import com.dvk.imageManager.utils.ImageManipulationUtils
+import com.dvk.imageManager.validation.ImageTypeValidator
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 import java.awt.image.BufferedImage
